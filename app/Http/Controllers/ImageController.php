@@ -16,6 +16,16 @@ class ImageController extends Controller
         $galeri = Galeri::all();
         return response()->json($galeri);
     }
+    public function indexdetailgaleri($id){
+        $detailgaleri = Galeri::find($id);
+
+        if($detailgaleri){
+            return response()->json($detailgaleri);
+
+        }else{
+            return response()->json(null);
+        }
+    }
 
     public function postgaleri(Request $request)
     {

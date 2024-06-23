@@ -75,6 +75,7 @@ Route::delete('deletejurusan/{id}', [SiswaController::class, 'deletejurusan'])->
 
 // Route galeri
 Route::get('getgaleri', [ImageController::class, 'indexgaleri'])->name('getgaleri');
+Route::get('getdetailgaleri/{id}', [ImageController::class, 'indexdetailgaleri'])->name('getdetailgaleri');
 Route::post('postgaleri', [ImageController::class, 'postgaleri'])->name('postgaleri');;
 Route::put('updategaleri/{id}', [ImageController::class, 'updategaleri'])->name('updategaleri');;
 Route::delete('deletegaleri/{id}', [ImageController::class, 'deletegaleri'])->name('deletegaleri');;
