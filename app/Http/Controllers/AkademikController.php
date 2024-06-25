@@ -54,6 +54,7 @@ class AkademikController extends Controller
             'deskripsi' => $request->input('deskripsi'),
             'file_berkas' => $file->getClientOriginalName(),
             'gambar' => $createnewFileName,
+            // ubah dikit
         ]);
 
         if ($postakademik) {
