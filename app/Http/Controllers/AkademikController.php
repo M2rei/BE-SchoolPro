@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AkademikResource;
 use App\Models\Akademik;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -19,11 +20,11 @@ class AkademikController extends Controller
     public function postakademik(Request $request)
     {
         $this->validate($request, [
-            'kurikulum_id' => 'required',
+            'kurikulum_id' => 'nullable',
             'tahun_ajaran' => 'required',
             'semester' => 'required',
-            'tanggal_mulai' => 'required',
-            'tanggal_selesai' => 'required',
+            // 'tanggal_mulai' => 'nullable',
+            // 'tanggal_selesai' => 'nullable',
             'deskripsi' => 'required',
             'file_berkas' => 'required|file|mimes:pdf',
             'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
@@ -45,14 +46,14 @@ class AkademikController extends Controller
         }
 
         $postakademik = Akademik::create([
-            'kurikulum_id' => $request->input('kurikulum_id'),
+            'kurikulum_id' => 1,
             'tahun_ajaran' => $request->input('tahun_ajaran'),
             'semester' => $request->input('semester'),
-            'tanggal_mulai' => $request->input('tanggal_mulai'),
-            'tanggal_selesai' => $request->input('tanggal_selesai'),
+            'tanggal_mulai' => '2020-04-11',
+            'tanggal_selesai' => '2020-04-12',
             'deskripsi' => $request->input('deskripsi'),
             'file_berkas' => $file->getClientOriginalName(),
-            'gambar' => $gambar_path,
+            'gambar' => $createnewFileName,
         ]);
 
         if ($postakademik) {
