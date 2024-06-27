@@ -101,7 +101,14 @@ class ImageController extends Controller
         }
         // Hapus gambar dari penyimpanan jika ada
         if ($deletegaleri->galeri) {
-            Storage::delete('public/post_img/' . $deletegaleri->galeri);
+            // Pastikan path yang benar sesuai dengan struktur penyimpanan Anda
+            $filePath = 'public/post_img/' . $deletegaleri->galeri;
+            
+            // Cek apakah file ada sebelum dihapus
+            if (Storage::exists($filePath)) {
+                // Hapus file dari penyimpanan
+                Storage::delete($filePath);
+            }
         }
         if ($deletegaleri->delete()) {
             return response()->json(['status' => true, 'message' => 'Galeri deleted successfully'], 200);
