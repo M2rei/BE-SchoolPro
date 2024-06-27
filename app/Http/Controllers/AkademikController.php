@@ -17,6 +17,17 @@ class AkademikController extends Controller
         return response()->json($akademiks);
     }
 
+    public function indexdetailakademik($id){
+        $detailakademik = Akademik::find($id);
+
+        if($detailakademik){
+            return response()->json($detailakademik);
+
+        }else{
+            return response()->json(null);
+        }
+    }
+
     public function postakademik(Request $request)
     {
         $this->validate($request, [
@@ -73,15 +84,19 @@ class AkademikController extends Controller
     public function updateakademik(Request $request, string $id)
     {
         $updateakademik = Akademik::find($id);
+        if (!$updateakademik) {
+            return response()->json(['status' => false, 'message' => 'Kalender Akademik not found'], 404);
+        }
+
         $this->validate($request, [
-            'kurikulum_id' => 'required',
+            'kurikulum_id' => 1,
             'tahun_ajaran' => 'required',
             'semester' => 'required',
-            'tanggal_mulai' => 'required',
-            'tanggal_selesai' => 'required',
+            'tanggal_mulai' => '2020-04-11',
+            'tanggal_selesai' => '2020-04-12',
             'deskripsi' => 'required',
-            'file_berkas' => 'nullable|file|mimes:pdf',
-            'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
+            // 'file_berkas' => 'nullable|file|mimes:pdf',
+            // 'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
         ]);
 
 
