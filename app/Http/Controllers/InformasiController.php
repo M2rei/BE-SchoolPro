@@ -29,13 +29,14 @@ class InformasiController extends Controller
     public function postinformasi(Request $request)
     {
         $this->validate($request, [
-            'users_id' => 'required',
             'guru_karyawan_id' => 'required',
             'judul' => 'required',
             'isi' => 'required',
             'kategori' => 'required',
             'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
         ]);
+        $data = $request->all();
+        $data['users_id'] = 1;
         $informasipost = Informasi::create($request->all());
 
         if ($request->hasFile('gambar')) {
@@ -58,6 +59,7 @@ class InformasiController extends Controller
             ], 500);
         }
     }
+    
     public function updateinformasi(Request $request, string $id)
     {
         $updateinformasi = Informasi::find($id);
