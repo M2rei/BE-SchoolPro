@@ -28,6 +28,8 @@ class AkademikController extends Controller
         }
     }
 
+    // ngubah bagian ini
+
     public function postakademik(Request $request)
     {
         $this->validate($request, [
