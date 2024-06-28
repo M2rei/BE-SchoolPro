@@ -32,7 +32,10 @@ Route::post('createuser', [LoginController::class, 'postuser'])->name('create.us
 Route::get('profile', [ProfileSekolahController::class, 'indexprofileschool'])->name('profile');
 Route::post('postprofile', [ProfileSekolahController::class, 'postprofile'])->name('postprofile');
 
-Route::put('updateprofile1/{id}', [ProfileSekolahController::class, 'updateprofile1']);
+Route::put('updateprofileschool/{id}', [ProfileSekolahController::class, 'updateprofileschool'])->name('updateprofileschool');
+Route::put('updatevisimisi/{id}', [ProfileSekolahController::class, 'updatevisimisi'])->name('updatevisimisi');
+Route::put('updatesambutan/{id}', [ProfileSekolahController::class, 'updatesambutan'])->name('updateprofileschool');
+Route::put('updatesejarah/{id}', [ProfileSekolahController::class, 'updatesejarah'])->name('updateprofileschool');
 
 
 
