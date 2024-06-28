@@ -85,7 +85,7 @@ Route::delete('deletegaleri/{id}', [ImageController::class, 'deletegaleri'])->na
 
 // Route sarpras
 Route::get('getsarpras', [ImageController::class, 'indexsarpras'])->name('getsarpras');
-Route::get('getdetailsarpras', [ImageController::class, 'indexdetailsarpras'])->name('getdetailsarpras');
+Route::get('getdetailsarpras/{id}', [ImageController::class, 'indexdetailsarpras'])->name('getdetailsarpras');
 Route::post('postsarpras', [ImageController::class, 'postsarpras'])->name('postsarpras');;
 Route::put('updatesarpras/{id}', [ImageController::class, 'updatesarpras'])->name('updatesarpras');;
 Route::delete('deletesarpras/{id}', [ImageController::class, 'deletesarpras'])->name('deletesarpras');;
