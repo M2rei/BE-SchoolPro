@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('indexxx', [LoginController::class, 'index']);
+Route::get('/indexxx', [LoginController::class, 'index']);
 Route::post('login', [LoginController::class, 'login']);
 Route::post('createuser', [LoginController::class, 'postuser'])->name('create.user');
 

@@ -73,6 +73,10 @@ class ImageController extends Controller
 
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
+            // Hapus gambar lama jika ada
+            // Hapus gambar lama jika ada
+            // Hapus gambar lama jika ada
+            // Hapus gambar lama jika ada
             if ($updategaleri->gambar) {
                 Storage::delete('public/post_img/' . $updategaleri->gambar);
             }
