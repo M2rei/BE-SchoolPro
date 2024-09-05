@@ -47,23 +47,23 @@ Route::put('updateguru/{id}', [GuruKaryawanController::class, 'updateguru'])->na
 Route::delete('deleteguru/{id}', [GuruKaryawanController::class, 'deleteguru'])->name('deleteguru');
 
 // Route guruMapel
-Route::get('getgurumapel', [GurumapelController::class, 'indexgurumapel'])->name('getgurumapel');;
-Route::post('postgurumapel', [GurumapelController::class, 'postgurumapel'])->name('postgurumapel');;
-Route::put('updategurumapel/{id}', [GurumapelController::class, 'updategurumapel'])->name('updategurumapel');;
-Route::delete('deletegurumapel/{id}', [GurumapelController::class, 'deletegurumapel'])->name('deletegurumapel');;
+Route::get('getgurumapel', [GurumapelController::class, 'indexgurumapel'])->name('getgurumapel');
+Route::post('postgurumapel', [GurumapelController::class, 'postgurumapel'])->name('postgurumapel');
+Route::put('updategurumapel/{id}', [GurumapelController::class, 'updategurumapel'])->name('updategurumapel');
+Route::delete('deletegurumapel/{id}', [GurumapelController::class, 'deletegurumapel'])->name('deletegurumapel');
 
 
 // Route matapelajaran
-Route::get('getmatapelajaran', [GurumapelController::class, 'indexmatapelajaran'])->name('getmatapelajaran');;
-Route::post('postmatapelajaran', [GurumapelController::class, 'postmatapelajaran'])->name('postmatapelajaran');;
-Route::put('updatematapelajaran/{id}', [GurumapelController::class, 'updatematapelajaran'])->name('updatematapelajaran');;
-Route::delete('deletematapelajaran/{id}', [GurumapelController::class, 'deletematapelajaran'])->name('deletematapelajaran');;
+Route::get('getmatapelajaran', [GurumapelController::class, 'indexmatapelajaran'])->name('getmatapelajaran');
+Route::post('postmatapelajaran', [GurumapelController::class, 'postmatapelajaran'])->name('postmatapelajaran');
+Route::put('updatematapelajaran/{id}', [GurumapelController::class, 'updatematapelajaran'])->name('updatematapelajaran');
+Route::delete('deletematapelajaran/{id}', [GurumapelController::class, 'deletematapelajaran'])->name('deletematapelajaran');
 
 //Route jabatan_guru
 Route::get('getjabatan', [GuruKaryawanController::class, 'indexjabatan'])->name('getjabatan');
-Route::post('postjabatan', [GuruKaryawanController::class, 'postjabatan'])->name('postjabatan');;
-Route::put('upadatejabatan/{id}', [GuruKaryawanController::class, 'upadatejabatan'])->name('upadatejabatan');;
-Route::delete('deletejabatan/{id}', [GuruKaryawanController::class, 'deletejabatan'])->name('deletejabatan');;
+Route::post('postjabatan', [GuruKaryawanController::class, 'postjabatan'])->name('postjabatan');
+Route::put('upadatejabatan/{id}', [GuruKaryawanController::class, 'upadatejabatan'])->name('upadatejabatan');
+Route::delete('deletejabatan/{id}', [GuruKaryawanController::class, 'deletejabatan'])->name('deletejabatan');
 
 //Route siswa
 Route::post('postsiswa', [SiswaController::class, 'postsiswa'])->name('postsiswa');;
@@ -98,7 +98,8 @@ Route::delete('deletekurikulum/{id}', [KurikulumController::class, 'deletekuriku
 
 // Route Akademik 
 Route::get('getakademik', [AkademikController::class, 'indexakademik'])->name('getakademik');
-Route::post('postakademik', [AkademikController::class, 'postakademik'])->name('postakademik');;
+Route::post('postakademik', [AkademikController::class, 'postakademik'])->name('postakademik');
+Route::get('getdetailakademik/{id}', [AkademikController::class, 'indexdetailakademik'])->name('getdetailakademik');
 Route::put('updateakademik/{id}', [AkademikController::class, 'updateakademik'])->name('updateakademik');;
 Route::delete('deleteakademik/{id}', [AkademikController::class, 'deleteakademik'])->name('deleteakademik');;
 
@@ -110,9 +111,9 @@ Route::put('updateakreditasi/{id}', [AkreditasiController::class, 'updateakredit
 Route::delete('deleteakreditasi/{id)', [AkreditasiController::class, 'deleteakreditasi'])->name('deleteakreditasi');;
 
 
-//Route Informasi
+// Route Informasi
 Route::get('getinformasi', [InformasiController::class, 'indexinformasi'])->name('getinformasi');
 Route::get('getdetailinformasi/{id}', [InformasiController::class, 'indexdetailinformasi'])->name('getdetailinformasi');
 Route::post('postinformasi', [InformasiController::class, 'postinformasi'])->name('postinformasi');
-Route::put('updateinformasi', [InformasiController::class, 'updateinformasi'])->name('updateinformasi');
-Route::delete('deleteinformasi', [InformasiController::class, 'deleteinformasi'])->name('deleteinformasi');
+Route::put('updateinformasi/{id}', [InformasiController::class, 'updateinformasi'])->name('updateinformasi');
+Route::delete('deleteinformasi/{id}', [InformasiController::class, 'deleteinformasi'])->name('deleteinformasi');

@@ -29,13 +29,14 @@ class InformasiController extends Controller
     public function postinformasi(Request $request)
     {
         $this->validate($request, [
-            'users_id' => 'required',
             'guru_karyawan_id' => 'required',
             'judul' => 'required',
             'isi' => 'required',
             'kategori' => 'required',
             'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
         ]);
+        $data = $request->all();
+        $data['users_id'] = 1;
         $informasipost = Informasi::create($request->all());
 
         if ($request->hasFile('gambar')) {
@@ -58,26 +59,28 @@ class InformasiController extends Controller
             ], 500);
         }
     }
+    
     public function updateinformasi(Request $request, string $id)
     {
         $updateinformasi = Informasi::find($id);
         if ($updateinformasi) {
             $validatedata = $request->validate([
-                'users_id' => 'required',
                 'guru_karyawan_id' => 'required',
                 'judul' => 'required',
                 'isi' => 'required',
                 'kategori' => 'required',
                 'gambar' => 'required|image|mimetypes:image/jpeg,image/jpg,image/png|max:2048',
             ]);
-            $updateinformasi->users_id = $validatedata['users_id'];
+
+            // Set users_id to 1
+            $updateinformasi->users_id = 1;
             $updateinformasi->guru_karyawan_id = $validatedata['guru_karyawan_id'];
             $updateinformasi->judul = $validatedata['judul'];
             $updateinformasi->isi = $validatedata['isi'];
             $updateinformasi->kategori = $validatedata['kategori'];
 
             if ($request->hasFile('gambar')) {
-                // Hapus gambar lama jika ada
+                // Delete the old image if it exists
                 if ($updateinformasi->gambar) {
                     Storage::delete('public/informasi/' . $updateinformasi->gambar);
                 }
@@ -91,20 +94,21 @@ class InformasiController extends Controller
             }
             if ($updateinformasi->save()) {
                 return response()->json([
-                    'Message: ' => 'Informasi updated with success.',
-                    'Informasi: ' => $updateinformasi
+                    'message' => 'Informasi updated with success.',
+                    'informasi' => $updateinformasi
                 ], 200);
             } else {
                 return response([
-                    'Message: ' => 'We could not update the Informasi.',
+                    'message' => 'We could not update the Informasi.',
                 ], 500);
             }
         } else {
             return response([
-                'Message: ' => 'We could not find the Informasi.',
+                'message' => 'We could not find the Informasi.',
             ], 500);
         }
     }
+
     public function deleteinformasi(string $id)
     {
         $deleteinformasi = Informasi::find($id);
